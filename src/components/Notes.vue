@@ -19,7 +19,8 @@ export default {
     width: 270px;
 }
 .title {
-    padding: 4px 0px 4px 7px;
+    padding: 9px 0px 9px 7px;
+    font-size: 20px;
 }
 
 input{
@@ -34,8 +35,8 @@ input{
 }
 
 .text{
-    margin-left: 7px;
     font-size: 15px;
     margin-bottom: 4px;
+    padding: 9px 0px 9px 7px;
 }
 </style>

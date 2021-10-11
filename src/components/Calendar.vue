@@ -4,6 +4,7 @@
         is-dark
         title-position="left"
         :masks="{ title: 'MMMM YYYY' }"
+        :attributes="attributes"
         >
         </v-date-picker>
     </div>
@@ -12,12 +13,25 @@
 <script>
 
 export default {
-
+    data() {
+        return {
+        attributes: [
+            {
+                key: 'today',
+                highlight: true,
+                dates: new Date()
+            }
+        ]
+    }
+}
 
 }
 </script>
 
+
 <style>
+
+
 .vc-container{
     border-radius: 0 !important;
     width: 270px !important;
@@ -29,10 +43,6 @@ export default {
     
 }
 
-.vc-svg-icon {
-
-}
-
 .vc-arrow.is-right{
     transform: rotate(90deg);
 }
@@ -40,6 +50,11 @@ export default {
 .vc-arrow.is-left{
     transform: rotate(90deg);
 }
+
+.vc-day-content.vc-focusable {
+    border-radius: 0 !important;
+}
+
 
 
 </style>

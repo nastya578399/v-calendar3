@@ -24,7 +24,7 @@ export default {
 </script>
 
 
-<style scoped>
+<style >
 .container {
   position: relative;
 }

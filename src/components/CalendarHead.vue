@@ -19,6 +19,9 @@ export default {
             min: new Date().getMinutes(),
             sec: new Date().getSeconds()
         }
+    },
+    methods:{
+        
     }
 }
 </script>
