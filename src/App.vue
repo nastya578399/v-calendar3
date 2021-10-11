@@ -3,14 +3,12 @@
     <CalendarHead />
     <Calendar />
     <Notes />
-    <Modal />
   </div>
 </template>
 
 <script>
 import Calendar from './components/Calendar.vue'
 import CalendarHead from './components/CalendarHead.vue'
-import Modal from './components/Modal.vue'
 import Notes from './components/Notes.vue'
 
 
@@ -20,8 +18,7 @@ export default {
   components: {
     Calendar,
     CalendarHead,
-    Notes,
-    Modal
+    Notes
   }
 }
 </script>

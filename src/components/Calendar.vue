@@ -1,11 +1,11 @@
 <template>
     <div>
-        <v-date-picker v-model="date"
+        <v-date-picker  v-model="date"
         is-dark
         title-position="left"
         :masks="{ title: 'MMMM YYYY' }"
         :attributes="attributes"
-        @event="data_handler"
+        @click="clickTime"
         >
         </v-date-picker>
     </div>
@@ -13,22 +13,32 @@
 
 <script>
 
+
 export default {
     data() {
         return {
-            data: '',
+            dateNotes: '',
             attributes: [
                 {
                     key: 'today',
                     highlight: true,
                     dates: new Date()
                 }
+            ],
+            events: [
+                {
+                    Notes: new Date(),
+                    name: "Date with David",
+                    comments: "MUST bring chocolate.",
+                }
             ]
         }
     },
+
     methods: {
-        data_handler() {
-            
+        clickTime(){
+            this.dataNotes = this.date
+            console.log('event', this.dateNotes)
         }
     }
 

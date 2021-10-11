@@ -1,14 +1,43 @@
 <template>
     <div class="container">
         <div class="title">Сегодня</div>
-        <input type="text" placeholder="Добавить событие сегодня">
-        <div class="text">Нет событий</div>
+        <input type="text" placeholder="Добавить событие сегодня" 
+        v-bind:value="inputValue"
+        v-on:input="inputChangeHandler"
+        v-on:keypress="inputKeyPress"
+        >
+        <div class="text" v-if="notes.length === 0">Нет событий</div>
+        <ul>
+            <li class="list-item" v-for="(note, i) in notes" :key="i">
+                {{ note }}
+                <button v-on:click="removeNote(i, $event)">удалить</button>
+            </li>
+        </ul>
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            inputValue: '',
+            notes: ['Notes 1', 'Notes 2'],
+        }
+    },
+    methods: {
+        inputChangeHandler(event) {
+            this.inputValue = event.target.value
+        },
+        inputKeyPress(event) {
+            if(event.key === 'Enter') {
+                this.notes.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        removeNote(i) {
+            this.notes.splice(i, 1)
+        }
+    }
 }
 </script>
 
