@@ -5,6 +5,7 @@
         title-position="left"
         :masks="{ title: 'MMMM YYYY' }"
         :attributes="attributes"
+        @event="data_handler"
         >
         </v-date-picker>
     </div>
@@ -15,15 +16,21 @@
 export default {
     data() {
         return {
-        attributes: [
-            {
-                key: 'today',
-                highlight: true,
-                dates: new Date()
-            }
-        ]
+            data: '',
+            attributes: [
+                {
+                    key: 'today',
+                    highlight: true,
+                    dates: new Date()
+                }
+            ]
+        }
+    },
+    methods: {
+        data_handler() {
+            
+        }
     }
-}
 
 }
 </script>
