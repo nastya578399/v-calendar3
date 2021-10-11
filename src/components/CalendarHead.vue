@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="head">
-            <div class="hours">{{ hours }}:{{ min }}:{{ sec }}</div>
+            <div class="hours">{{ hours }}</div>
             <div class="date">{{ date }}</div>
         </div>
     </div>
@@ -15,9 +15,7 @@ export default {
         return {
             // hours: moment().format('LTS'),
             date: moment().format('LL'),
-            hours: new Date().getHours(),
-            min: new Date().getMinutes(),
-            sec: new Date().getSeconds()
+            hours: moment().format('HH:mm:ss'),
         }
     },
     methods:{
