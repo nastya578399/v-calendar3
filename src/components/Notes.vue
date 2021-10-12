@@ -9,8 +9,8 @@
         <div class="text" v-if="notes.length === 0">Нет событий</div>
         <ul>
             <li class="list-item" v-for="(note, i) in notes" :key="i">
-                {{ note }}
-                <button v-on:click="removeNote(i, $event)">удалить</button>
+                {{ note }} {{ timezone }}
+                <button class="btn" v-on:click="removeNote(i, $event)">удалить</button>
             </li>
         </ul>
     </div>
@@ -18,6 +18,7 @@
 
 <script>
 export default {
+    props: ['timezone'],
     data() {
         return {
             inputValue: '',
@@ -67,5 +68,11 @@ input{
     font-size: 15px;
     margin-bottom: 4px;
     padding: 9px 0px 9px 7px;
+}
+
+.btn{
+    margin-left: 0px;
+    color: white;
+    background-color: #2196f3;
 }
 </style>

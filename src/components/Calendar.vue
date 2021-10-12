@@ -5,9 +5,12 @@
         title-position="left"
         :masks="{ title: 'MMMM YYYY' }"
         :attributes="attributes"
-        @click="clickTime"
+        mode="dateTime" 
+        :timezone="timezone"
+        @click="se"
         >
         </v-date-picker>
+        
     </div>
 </template>
 
@@ -17,7 +20,9 @@
 export default {
     data() {
         return {
+            date: new Date(),
             dateNotes: '',
+            timezone: '',
             attributes: [
                 {
                     key: 'today',
@@ -36,10 +41,7 @@ export default {
     },
 
     methods: {
-        clickTime(){
-            this.dataNotes = this.date
-            console.log('event', this.dateNotes)
-        }
+        
     }
 
 }
