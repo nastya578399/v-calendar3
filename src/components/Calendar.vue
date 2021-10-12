@@ -7,10 +7,11 @@
         :attributes="attributes"
         mode="dateTime" 
         :timezone="timezone"
-        @click="se"
+        :minute-increment="5"
+        v-bind:date="date"
         >
         </v-date-picker>
-        
+        <button @click="clickDate">Добавить</button>
     </div>
 </template>
 
@@ -19,8 +20,10 @@
 
 export default {
     data() {
+        let date = new Date();
+        date.setMinutes(0, 0, 0);
         return {
-            date: new Date(),
+            date,
             dateNotes: '',
             timezone: '',
             attributes: [
@@ -41,9 +44,13 @@ export default {
     },
 
     methods: {
+        clickDate() {
+            console.log(this.date)
+        }
+    },
+    watch: {
         
     }
-
 }
 </script>
 
