@@ -23,6 +23,7 @@ export default {
         return {
             inputValue: '',
             notes: [],
+            newNote: null,
         }
     },
     methods: {
@@ -34,10 +35,25 @@ export default {
                 this.notes.push(this.inputValue)
                 console.log(this.date)
                 this.inputValue = ''
+                this.saveNotes()
             }
         },
         removeNote(i) {
             this.notes.splice(i, 1)
+            this.saveNotes()
+        },
+        saveNotes(){
+            let parsed = JSON.stringify(this.notes)
+            localStorage.setItem('notes', parsed)
+        }
+    },
+    mounted() {
+        if(localStorage.getItem('notes')) {
+            try {
+                this.notes = JSON.parse(localStorage.getItem('notes'))
+            } catch(e) {
+                localStorage.removeItem('notes');
+            }
         }
     },
     watch: {

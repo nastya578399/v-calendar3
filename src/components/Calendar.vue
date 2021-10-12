@@ -44,8 +44,8 @@ export default {
 
     methods: {
         clickDate() {
-            console.log(this.date);
             this.dateNotes = this.date
+            console.log(this.date);
         }
     },
     watch: {
