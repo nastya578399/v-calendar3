@@ -8,7 +8,6 @@
         mode="dateTime" 
         :timezone="timezone"
         :minute-increment="5"
-        v-bind:date="date"
         >
         </v-date-picker>
         <button @click="clickDate">Добавить</button>
@@ -16,14 +15,14 @@
 </template>
 
 <script>
-
+import moment from 'moment'
 
 export default {
     data() {
         let date = new Date();
         date.setMinutes(0, 0, 0);
         return {
-            date,
+            date: moment().format('MMMM Do YYYY, h:mm:ss a'),
             dateNotes: '',
             timezone: '',
             attributes: [
@@ -45,7 +44,8 @@ export default {
 
     methods: {
         clickDate() {
-            console.log(this.date)
+            console.log(this.date);
+            this.dateNotes = this.date
         }
     },
     watch: {
@@ -79,6 +79,11 @@ export default {
 
 .vc-day-content.vc-focusable {
     border-radius: 0 !important;
+}
+
+.vc-highlight{
+    border-radius: 0 !important;
+    background-color: #2196f3 !important;
 }
 
 

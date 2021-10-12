@@ -22,7 +22,7 @@ export default {
     data() {
         return {
             inputValue: '',
-            notes: ['Notes 1', 'Notes 2'],
+            notes: [],
         }
     },
     methods: {
