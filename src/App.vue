@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <CalendarHead />
-    <Calendar />
+    <Calendar  />
     <Notes />
   </div>
 </template>
@@ -15,6 +15,10 @@ import Notes from './components/Notes.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+    }
+  },
   components: {
     Calendar,
     CalendarHead,

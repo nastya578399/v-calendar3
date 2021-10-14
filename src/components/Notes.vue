@@ -1,11 +1,11 @@
 <template>
     <div class="container">
         <div class="title">Сегодня</div>
-        <input type="text" placeholder="Добавить событие сегодня" 
+        <input type="text" placeholder="Добавить событие сегодня"
         v-bind:value="inputValue"
         v-on:input="inputChangeHandler"
         v-on:keypress="inputKeyPress"
-        >
+        >    
         <div class="text" v-if="notes.length === 0">Нет событий</div>
         <ul>
             <li class="list-item"  v-for="(note, i) in notes" :key="i">
@@ -18,12 +18,14 @@
 
 <script>
 export default {
-    props: ['date'],
+    props: {
+        date: String
+    },
     data() {
         return {
             inputValue: '',
             notes: [],
-            newNote: null,
+            newNote: null
         }
     },
     methods: {
@@ -33,7 +35,6 @@ export default {
         inputKeyPress(event) {
             if(event.key === 'Enter') {
                 this.notes.push(this.inputValue)
-                console.log(this.date)
                 this.inputValue = ''
                 this.saveNotes()
             }

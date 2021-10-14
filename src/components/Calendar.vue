@@ -8,9 +8,9 @@
         mode="dateTime" 
         :timezone="timezone"
         :minute-increment="5"
+        :date="date" 
         >
         </v-date-picker>
-        <button @click="clickDate">Добавить</button>
     </div>
 </template>
 
@@ -35,17 +35,15 @@ export default {
             events: [
                 {
                     Notes: new Date(),
-                    name: "Date with David",
-                    comments: "MUST bring chocolate.",
                 }
             ]
         }
     },
     methods: {
         clickDate() {
-            this.dateNotes = this.date
-            console.log(this.date);
-        }
+            this.dateNotes = this.date.toLocaleString()
+            console.log(this.dateNotes);
+        },
     },
     watch: {
         
