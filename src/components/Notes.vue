@@ -8,7 +8,7 @@
         >
         <div class="text" v-if="notes.length === 0">Нет событий</div>
         <ul>
-            <li class="list-item" v-for="(note, i) in notes" :key="i">
+            <li class="list-item"  v-for="(note, i) in notes" :key="i">
                 {{ note }}
                 <button class="btn" v-on:click="removeNote(i, $event)">удалить</button>
             </li>
@@ -62,7 +62,11 @@ export default {
                 this.inputValue = ''
             }
         }
+    },
+    computed: {
+        
     }
+
 }
 </script>
 

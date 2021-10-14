@@ -15,14 +15,14 @@
 </template>
 
 <script>
-import moment from 'moment'
+// import moment from 'moment'
 
 export default {
     data() {
         let date = new Date();
         date.setMinutes(0, 0, 0);
         return {
-            date: moment().format('MMMM Do YYYY, h:mm:ss a'),
+            date: '',
             dateNotes: '',
             timezone: '',
             attributes: [
@@ -41,7 +41,6 @@ export default {
             ]
         }
     },
-
     methods: {
         clickDate() {
             this.dateNotes = this.date
@@ -84,6 +83,8 @@ export default {
 .vc-highlight{
     border-radius: 0 !important;
     background-color: #2196f3 !important;
+    border: 2px solid #000;
+    outline: 2px solid#2196f3 ;
 }
 
 
